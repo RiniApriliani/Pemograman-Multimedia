@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cek Bilangan Genap atau Ganjil</title>
+</head>
+<body background="img/bg.jpg"> 
+  <h1>Cek Bilangan Genap atau Ganjil</h1>
+  <p>Masukkan sebuah bilangan bulat: <input type="text" id="inputNumber"></p>
+  <button onclick="cekBilangan()">Cek</button>
+  <p id="result"></p>
+
+  <script>
+    // Fungsi untuk menentukan bilangan genap atau ganjil
+    function cekGenapGanjil(bilangan) {
+      if (bilangan % 2 === 0) {
+        return 'genap';
+      } else {
+        return 'ganjil';
+      }
+    }
+
+    // Fungsi untuk menampilkan hasil ke dalam elemen HTML
+    function cekBilangan() {
+      const inputElement = document.getElementById('inputNumber');
+      const resultElement = document.getElementById('result');
+      const bilangan = parseInt(inputElement.value);
+
+      if (!isNaN(bilangan)) {
+        const hasil = cekGenapGanjil(bilangan);
+        resultElement.textContent = bilangan + ' adalah bilangan ' + hasil;
+      } else {
+        resultElement.textContent = 'Masukkan bukan bilangan bulat.';
+      }
+    }
+  </script>
+</body>
+</html>
